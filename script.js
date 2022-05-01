@@ -12,19 +12,23 @@ function geraCarta() {
   let texto = cartaUser.value;
   let palavra = '';
   let arrayPalavra = [];
-  for (let key = 0; key < texto.length; key += 1) {
-    if (texto[key] !== ' ') {
-      palavra += texto[key];
-      console.log(palavra);
-    } else {
+  if (texto.trim().length === 0) {
+    areaCarta.innerHTML = 'Por favor, digite o conteúdo da carta.';
+  } else {
+      for (let key = 0; key < texto.length; key += 1) {
+        if (texto[key] !== ' ') {
+          palavra += texto[key];
+          console.log(palavra);
+        } else {
+          arrayPalavra.push(palavra);
+          palavra = '';
+        }
+      }
       arrayPalavra.push(palavra);
-      palavra = '';
+      for (let key in arrayPalavra) {
+        let novaCarta = document.createElement('span');
+        novaCarta.innerHTML = arrayPalavra[key];
+        areaCarta.appendChild(novaCarta);
+      }
     }
-  }
-  arrayPalavra.push(palavra);
-  for (let key in arrayPalavra) {
-    let novaCarta = document.createElement('span');
-    novaCarta.innerHTML = arrayPalavra[key];
-    areaCarta.appendChild(novaCarta);
-  }
 }
