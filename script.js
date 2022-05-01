@@ -37,9 +37,17 @@ function geraCarta() {
         novaCarta.classList.add(grpRotacao[Math.floor(Math.random()* 2)]);
         novaCarta.classList.add(grpInclinacao[Math.floor(Math.random()* 2)]);
         novaCarta.innerHTML = arrayPalavra[key];
+        novaCarta.addEventListener('click', mudaEstilo);
         areaCarta.appendChild(novaCarta);
       }
     }
   let numeroPalavra = arrayPalavra.length;
   contador.innerHTML = numeroPalavra;
+}
+function mudaEstilo(evento) {
+  evento.target.removeAttribute('class');
+  evento.target.classList.add(grpTamanho[Math.floor(Math.random()* 3)]);
+  evento.target.classList.add(grpEstilo[Math.floor(Math.random()* 3)]);
+  evento.target.classList.add(grpRotacao[Math.floor(Math.random()* 2)]);
+  evento.target.classList.add(grpInclinacao[Math.floor(Math.random()* 2)]);
 }
