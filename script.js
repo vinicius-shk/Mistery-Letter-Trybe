@@ -1,6 +1,7 @@
 let btnCriar = document.getElementById('criar-carta');
 let cartaUser = document.getElementById('carta-texto');
 let areaCarta = document.getElementById('carta-gerada');
+let contador = document.getElementById('carta-contador');
 let grpEstilo = ['newspaper', 'magazine1', 'magazine2'];
 let grpTamanho = ['medium', 'big', 'reallybig'];
 let grpRotacao = ['rotateleft', 'rotateright'];
@@ -39,4 +40,6 @@ function geraCarta() {
         areaCarta.appendChild(novaCarta);
       }
     }
+  let numeroPalavra = arrayPalavra.length;
+  contador.innerHTML = numeroPalavra;
 }
